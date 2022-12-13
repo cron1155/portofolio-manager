@@ -4,45 +4,55 @@ import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
   return (
     <div className="container">
-      <h1>Welcome to Tauri!</h1>
+      <div className="header">Portofolio Manager</div>
+      <div className="container">
+        <div className="box border">
+          <input value={"APPL"} />
+          <input value={"100"} />
 
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+          <div>PRICE</div>
 
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+          <button>Purchase</button>
+        </div>
 
-      <div className="row">
-        <div>
-          <input
-            id="greet-input"
-            onChange={(e) => setName(e.currentTarget.value)}
-            placeholder="Enter a name..."
-          />
-          <button type="button" onClick={() => greet()}>
-            Greet
-          </button>
+        <div className="box border flex column">
+          <p>Statistics</p>
+
+          <div className="flex row">
+            <div className="box border">P&L</div>
+          </div>
+        </div>
+
+        <div className="box flex column">
+          <div className="stock-entry">
+            <div className="label flex column">
+              <span>TICKER</span>
+              <span>APPL</span>
+            </div>
+
+            <div className="label flex column">
+              <span>QUANTITY</span>
+              <span>100</span>
+            </div>
+
+            <div className="label flex column">
+              <span>PRICE OF PURCHASE</span>
+              <span>100</span>
+            </div>
+
+            <div className="label flex column">
+              <span>PRICE</span>
+              <span>100</span>
+            </div>
+
+            <div className="label">
+              <span>ACTIONS</span>
+            </div>
+          </div>
         </div>
       </div>
-      <p>{greetMsg}</p>
     </div>
   );
 }
